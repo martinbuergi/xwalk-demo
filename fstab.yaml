@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p130360-e1368254-cmstg.adobeaemcloud.com/bin/franklin.delivery/martinbuergi/xwalk-demo/main"
+    url: "https://author-p130360-e1368254.adobeaemcloud.com/bin/franklin.delivery/martinbuergi/xwalk-demo/main"
     type: "markup"
     suffix: ".html"
