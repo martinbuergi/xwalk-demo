@@ -119,7 +119,7 @@ function attachEventListners(main) {
 
 enableExtensions([
   'https://experience-stage.adobe.com/solutions/aem-extensibility-experimentation-framework/static-assets/resources/universal_editor.html?aem-extensibility-experimentation-framework_version=PR-18-75f3953609f5408767c6becc02e35763bb318342',
-
+  'https://245265-nfmdemopicker-stage.adobeio-static.net/index.html',
 ]);
 
 attachEventListners(document.querySelector('main'));
