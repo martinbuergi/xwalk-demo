@@ -195,17 +195,5 @@
         "label": "Reference"
       }
     ]
-  },
-  {
-    "id": "product-teaser",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "sku",
-        "label": "SKU",
-        "value": ""
-      }
-    ]
   }
 ]
