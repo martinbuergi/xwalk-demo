@@ -88,6 +88,29 @@ async function applyChanges(event) {
   return false;
 }
 
+function handleReloadPage(event) {
+  const a = document.createElement('a');
+  a.setAttribute('href', event.detail);
+  event.target.append(a);
+  a.click();
+}
+
+function enableExtensions(extensions) {
+  const meta = document.createElement('meta');
+  meta.name = 'urn:adobe:aue:config:extensions';
+  meta.content = extensions.join(',');
+  document.getElementsByTagName('head')[0].appendChild(meta);
+}
+
+function addConnections(connections) {
+  Object.keys(connections).forEach((connectionName) => {
+    const meta = document.createElement('meta');
+    meta.name = `urn:adobe:aue:system:${connectionName}`;
+    meta.content = connections[connectionName];
+    document.getElementsByTagName('head')[0].appendChild(meta);
+  });
+}
+
 function attachEventListners(main) {
   [
     'aue:content-patch',
@@ -100,6 +123,12 @@ function attachEventListners(main) {
     const applied = await applyChanges(event);
     if (!applied) window.location.reload();
   }));
+  main.addEventListener('extension:reloadPage', handleReloadPage);
 }
+
+enableExtensions([
+  'https://experience-stage.adobe.com/solutions/aem-extensibility-experimentation-framework/static-assets/resources/universal_editor.html?aem-extensibility-experimentation-framework_version=PR-18-75f3953609f5408767c6becc02e35763bb318342',
+
+]);
 
 attachEventListners(document.querySelector('main'));
