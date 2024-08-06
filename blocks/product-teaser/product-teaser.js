@@ -138,8 +138,10 @@ export default async function decorate(block) {
 
   renderPlaceholder(config, block);
 
+  block.classList.add('product-teaser');
+
   const { products } = await performCatalogServiceQuery(productTeaserQuery, {
-    sku: config.sku,
+    sku: block.children[0].children[0].textContent.trim(),
   });
   if (!products || !products.length > 0 || !products[0].sku) {
     return;
