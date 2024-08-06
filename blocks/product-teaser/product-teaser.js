@@ -133,6 +133,7 @@ function renderProduct(product, config, block) {
 
 export default async function decorate(block) {
   const config = readBlockConfig(block);
+  const sku = block.children[0].children[0].textContent.trim();
   config['details-button'] = !!(config['details-button'] || config['details-button'] === 'true');
   config['cart-button'] = !!(config['cart-button'] || config['cart-button'] === 'true');
 
@@ -140,7 +141,6 @@ export default async function decorate(block) {
 
   block.classList.add('product-teaser');
 
-  const sku = block.children[0].children[0].textContent.trim();
   const { products } = await performCatalogServiceQuery(productTeaserQuery, {
     sku: sku,
   });
