@@ -200,7 +200,7 @@
     "id": "product-teaser",
     "fields": [
       {
-        "component": "text",
+        "component": "sku",
         "valueType": "string",
         "name": "sku",
         "label": "SKU",
